@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
-<body>
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label for="username-field">Username</label>
+        <input class="form-control" id="username-field" type="text" name="username" th:value="${username}"/>
+    </div>
+    <div class="form-group">
+        <label for="email-field">Email</label>
+        <input class="form-control" id="email-field" type="email" name="email" th:value="${email}" />
+    </div>
+    <div class="form-group">
+        <label for="password-field">Password</label>
+        <input class="form-control" id="password-field" type="password" name="password" />
+    </div>
+    <div class="form-group">
+        <label for="verify-field">Retype Password</label>
+        <input class="form-control" id="verify-field" type="password" name="verify" />
+        <div class="alert alert-danger" th:if="${error}">
+            <strong>Hey!</strong> Passwords don't match.
+        </div>
+    </div>
+    <input type="submit" value="Add Cheese" />
+</form>
 
 </body>
 </html>
